@@ -183,29 +183,29 @@ RaspiPreview.c.s:
 	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiPreview.c.s
 .PHONY : RaspiPreview.c.s
 
-camcv.o: camcv.c.o
-.PHONY : camcv.o
+mycamera.o: mycamera.c.o
+.PHONY : mycamera.o
 
 # target to build an object file
-camcv.c.o:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/camcv.c.o
-.PHONY : camcv.c.o
+mycamera.c.o:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/mycamera.c.o
+.PHONY : mycamera.c.o
 
-camcv.i: camcv.c.i
-.PHONY : camcv.i
+mycamera.i: mycamera.c.i
+.PHONY : mycamera.i
 
 # target to preprocess a source file
-camcv.c.i:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/camcv.c.i
-.PHONY : camcv.c.i
+mycamera.c.i:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/mycamera.c.i
+.PHONY : mycamera.c.i
 
-camcv.s: camcv.c.s
-.PHONY : camcv.s
+mycamera.s: mycamera.c.s
+.PHONY : mycamera.s
 
 # target to generate assembly for a file
-camcv.c.s:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/camcv.c.s
-.PHONY : camcv.c.s
+mycamera.c.s:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/mycamera.c.s
+.PHONY : mycamera.c.s
 
 # Help Target
 help:
@@ -225,9 +225,9 @@ help:
 	@echo "... RaspiPreview.o"
 	@echo "... RaspiPreview.i"
 	@echo "... RaspiPreview.s"
-	@echo "... camcv.o"
-	@echo "... camcv.i"
-	@echo "... camcv.s"
+	@echo "... mycamera.o"
+	@echo "... mycamera.i"
+	@echo "... mycamera.s"
 .PHONY : help
 
 
