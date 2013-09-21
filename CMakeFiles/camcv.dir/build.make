@@ -49,74 +49,74 @@ include CMakeFiles/camcv.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/camcv.dir/flags.make
 
-CMakeFiles/camcv.dir/RaspiCamControl.c.o: CMakeFiles/camcv.dir/flags.make
-CMakeFiles/camcv.dir/RaspiCamControl.c.o: RaspiCamControl.c
+CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o: CMakeFiles/camcv.dir/flags.make
+CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o: RaspiCam/RaspiCamControl.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/camcv/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/camcv.dir/RaspiCamControl.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/camcv.dir/RaspiCamControl.c.o   -c /home/pi/camcv/RaspiCamControl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o   -c /home/pi/camcv/RaspiCam/RaspiCamControl.c
 
-CMakeFiles/camcv.dir/RaspiCamControl.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/camcv.dir/RaspiCamControl.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/camcv/RaspiCamControl.c > CMakeFiles/camcv.dir/RaspiCamControl.c.i
+CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/camcv/RaspiCam/RaspiCamControl.c > CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.i
 
-CMakeFiles/camcv.dir/RaspiCamControl.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/camcv.dir/RaspiCamControl.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/camcv/RaspiCamControl.c -o CMakeFiles/camcv.dir/RaspiCamControl.c.s
+CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/camcv/RaspiCam/RaspiCamControl.c -o CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.s
 
-CMakeFiles/camcv.dir/RaspiCamControl.c.o.requires:
-.PHONY : CMakeFiles/camcv.dir/RaspiCamControl.c.o.requires
+CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o.requires:
+.PHONY : CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o.requires
 
-CMakeFiles/camcv.dir/RaspiCamControl.c.o.provides: CMakeFiles/camcv.dir/RaspiCamControl.c.o.requires
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCamControl.c.o.provides.build
-.PHONY : CMakeFiles/camcv.dir/RaspiCamControl.c.o.provides
+CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o.provides: CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o.requires
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o.provides.build
+.PHONY : CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o.provides
 
-CMakeFiles/camcv.dir/RaspiCamControl.c.o.provides.build: CMakeFiles/camcv.dir/RaspiCamControl.c.o
+CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o.provides.build: CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o
 
-CMakeFiles/camcv.dir/RaspiCLI.c.o: CMakeFiles/camcv.dir/flags.make
-CMakeFiles/camcv.dir/RaspiCLI.c.o: RaspiCLI.c
+CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o: CMakeFiles/camcv.dir/flags.make
+CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o: RaspiCam/RaspiCLI.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/camcv/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/camcv.dir/RaspiCLI.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/camcv.dir/RaspiCLI.c.o   -c /home/pi/camcv/RaspiCLI.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o   -c /home/pi/camcv/RaspiCam/RaspiCLI.c
 
-CMakeFiles/camcv.dir/RaspiCLI.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/camcv.dir/RaspiCLI.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/camcv/RaspiCLI.c > CMakeFiles/camcv.dir/RaspiCLI.c.i
+CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/camcv/RaspiCam/RaspiCLI.c > CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.i
 
-CMakeFiles/camcv.dir/RaspiCLI.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/camcv.dir/RaspiCLI.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/camcv/RaspiCLI.c -o CMakeFiles/camcv.dir/RaspiCLI.c.s
+CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/camcv/RaspiCam/RaspiCLI.c -o CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.s
 
-CMakeFiles/camcv.dir/RaspiCLI.c.o.requires:
-.PHONY : CMakeFiles/camcv.dir/RaspiCLI.c.o.requires
+CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o.requires:
+.PHONY : CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o.requires
 
-CMakeFiles/camcv.dir/RaspiCLI.c.o.provides: CMakeFiles/camcv.dir/RaspiCLI.c.o.requires
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCLI.c.o.provides.build
-.PHONY : CMakeFiles/camcv.dir/RaspiCLI.c.o.provides
+CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o.provides: CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o.requires
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o.provides.build
+.PHONY : CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o.provides
 
-CMakeFiles/camcv.dir/RaspiCLI.c.o.provides.build: CMakeFiles/camcv.dir/RaspiCLI.c.o
+CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o.provides.build: CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o
 
-CMakeFiles/camcv.dir/RaspiPreview.c.o: CMakeFiles/camcv.dir/flags.make
-CMakeFiles/camcv.dir/RaspiPreview.c.o: RaspiPreview.c
+CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o: CMakeFiles/camcv.dir/flags.make
+CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o: RaspiCam/RaspiPreview.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/camcv/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/camcv.dir/RaspiPreview.c.o"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/camcv.dir/RaspiPreview.c.o   -c /home/pi/camcv/RaspiPreview.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o   -c /home/pi/camcv/RaspiCam/RaspiPreview.c
 
-CMakeFiles/camcv.dir/RaspiPreview.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/camcv.dir/RaspiPreview.c.i"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/camcv/RaspiPreview.c > CMakeFiles/camcv.dir/RaspiPreview.c.i
+CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.i"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/camcv/RaspiCam/RaspiPreview.c > CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.i
 
-CMakeFiles/camcv.dir/RaspiPreview.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/camcv.dir/RaspiPreview.c.s"
-	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/camcv/RaspiPreview.c -o CMakeFiles/camcv.dir/RaspiPreview.c.s
+CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.s"
+	/usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/camcv/RaspiCam/RaspiPreview.c -o CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.s
 
-CMakeFiles/camcv.dir/RaspiPreview.c.o.requires:
-.PHONY : CMakeFiles/camcv.dir/RaspiPreview.c.o.requires
+CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o.requires:
+.PHONY : CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o.requires
 
-CMakeFiles/camcv.dir/RaspiPreview.c.o.provides: CMakeFiles/camcv.dir/RaspiPreview.c.o.requires
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiPreview.c.o.provides.build
-.PHONY : CMakeFiles/camcv.dir/RaspiPreview.c.o.provides
+CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o.provides: CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o.requires
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o.provides.build
+.PHONY : CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o.provides
 
-CMakeFiles/camcv.dir/RaspiPreview.c.o.provides.build: CMakeFiles/camcv.dir/RaspiPreview.c.o
+CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o.provides.build: CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o
 
 CMakeFiles/camcv.dir/mycamera.c.o: CMakeFiles/camcv.dir/flags.make
 CMakeFiles/camcv.dir/mycamera.c.o: mycamera.c
@@ -143,17 +143,17 @@ CMakeFiles/camcv.dir/mycamera.c.o.provides.build: CMakeFiles/camcv.dir/mycamera.
 
 # Object files for target camcv
 camcv_OBJECTS = \
-"CMakeFiles/camcv.dir/RaspiCamControl.c.o" \
-"CMakeFiles/camcv.dir/RaspiCLI.c.o" \
-"CMakeFiles/camcv.dir/RaspiPreview.c.o" \
+"CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o" \
+"CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o" \
+"CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o" \
 "CMakeFiles/camcv.dir/mycamera.c.o"
 
 # External object files for target camcv
 camcv_EXTERNAL_OBJECTS =
 
-camcv: CMakeFiles/camcv.dir/RaspiCamControl.c.o
-camcv: CMakeFiles/camcv.dir/RaspiCLI.c.o
-camcv: CMakeFiles/camcv.dir/RaspiPreview.c.o
+camcv: CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o
+camcv: CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o
+camcv: CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o
 camcv: CMakeFiles/camcv.dir/mycamera.c.o
 camcv: CMakeFiles/camcv.dir/build.make
 camcv: /opt/vc/lib/libmmal_core.so
@@ -169,9 +169,9 @@ camcv: CMakeFiles/camcv.dir/link.txt
 CMakeFiles/camcv.dir/build: camcv
 .PHONY : CMakeFiles/camcv.dir/build
 
-CMakeFiles/camcv.dir/requires: CMakeFiles/camcv.dir/RaspiCamControl.c.o.requires
-CMakeFiles/camcv.dir/requires: CMakeFiles/camcv.dir/RaspiCLI.c.o.requires
-CMakeFiles/camcv.dir/requires: CMakeFiles/camcv.dir/RaspiPreview.c.o.requires
+CMakeFiles/camcv.dir/requires: CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o.requires
+CMakeFiles/camcv.dir/requires: CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o.requires
+CMakeFiles/camcv.dir/requires: CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o.requires
 CMakeFiles/camcv.dir/requires: CMakeFiles/camcv.dir/mycamera.c.o.requires
 .PHONY : CMakeFiles/camcv.dir/requires
 

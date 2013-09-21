@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/camcv.dir/RaspiCamControl.c.o"
-  "CMakeFiles/camcv.dir/RaspiCLI.c.o"
-  "CMakeFiles/camcv.dir/RaspiPreview.c.o"
+  "CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o"
+  "CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o"
+  "CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o"
   "CMakeFiles/camcv.dir/mycamera.c.o"
   "camcv.pdb"
   "camcv"

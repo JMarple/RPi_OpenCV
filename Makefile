@@ -111,77 +111,77 @@ camcv/fast:
 	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/build
 .PHONY : camcv/fast
 
-RaspiCLI.o: RaspiCLI.c.o
-.PHONY : RaspiCLI.o
+RaspiCam/RaspiCLI.o: RaspiCam/RaspiCLI.c.o
+.PHONY : RaspiCam/RaspiCLI.o
 
 # target to build an object file
-RaspiCLI.c.o:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCLI.c.o
-.PHONY : RaspiCLI.c.o
+RaspiCam/RaspiCLI.c.o:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o
+.PHONY : RaspiCam/RaspiCLI.c.o
 
-RaspiCLI.i: RaspiCLI.c.i
-.PHONY : RaspiCLI.i
+RaspiCam/RaspiCLI.i: RaspiCam/RaspiCLI.c.i
+.PHONY : RaspiCam/RaspiCLI.i
 
 # target to preprocess a source file
-RaspiCLI.c.i:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCLI.c.i
-.PHONY : RaspiCLI.c.i
+RaspiCam/RaspiCLI.c.i:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.i
+.PHONY : RaspiCam/RaspiCLI.c.i
 
-RaspiCLI.s: RaspiCLI.c.s
-.PHONY : RaspiCLI.s
+RaspiCam/RaspiCLI.s: RaspiCam/RaspiCLI.c.s
+.PHONY : RaspiCam/RaspiCLI.s
 
 # target to generate assembly for a file
-RaspiCLI.c.s:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCLI.c.s
-.PHONY : RaspiCLI.c.s
+RaspiCam/RaspiCLI.c.s:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.s
+.PHONY : RaspiCam/RaspiCLI.c.s
 
-RaspiCamControl.o: RaspiCamControl.c.o
-.PHONY : RaspiCamControl.o
+RaspiCam/RaspiCamControl.o: RaspiCam/RaspiCamControl.c.o
+.PHONY : RaspiCam/RaspiCamControl.o
 
 # target to build an object file
-RaspiCamControl.c.o:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCamControl.c.o
-.PHONY : RaspiCamControl.c.o
+RaspiCam/RaspiCamControl.c.o:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o
+.PHONY : RaspiCam/RaspiCamControl.c.o
 
-RaspiCamControl.i: RaspiCamControl.c.i
-.PHONY : RaspiCamControl.i
+RaspiCam/RaspiCamControl.i: RaspiCam/RaspiCamControl.c.i
+.PHONY : RaspiCam/RaspiCamControl.i
 
 # target to preprocess a source file
-RaspiCamControl.c.i:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCamControl.c.i
-.PHONY : RaspiCamControl.c.i
+RaspiCam/RaspiCamControl.c.i:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.i
+.PHONY : RaspiCam/RaspiCamControl.c.i
 
-RaspiCamControl.s: RaspiCamControl.c.s
-.PHONY : RaspiCamControl.s
+RaspiCam/RaspiCamControl.s: RaspiCam/RaspiCamControl.c.s
+.PHONY : RaspiCam/RaspiCamControl.s
 
 # target to generate assembly for a file
-RaspiCamControl.c.s:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCamControl.c.s
-.PHONY : RaspiCamControl.c.s
+RaspiCam/RaspiCamControl.c.s:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.s
+.PHONY : RaspiCam/RaspiCamControl.c.s
 
-RaspiPreview.o: RaspiPreview.c.o
-.PHONY : RaspiPreview.o
+RaspiCam/RaspiPreview.o: RaspiCam/RaspiPreview.c.o
+.PHONY : RaspiCam/RaspiPreview.o
 
 # target to build an object file
-RaspiPreview.c.o:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiPreview.c.o
-.PHONY : RaspiPreview.c.o
+RaspiCam/RaspiPreview.c.o:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o
+.PHONY : RaspiCam/RaspiPreview.c.o
 
-RaspiPreview.i: RaspiPreview.c.i
-.PHONY : RaspiPreview.i
+RaspiCam/RaspiPreview.i: RaspiCam/RaspiPreview.c.i
+.PHONY : RaspiCam/RaspiPreview.i
 
 # target to preprocess a source file
-RaspiPreview.c.i:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiPreview.c.i
-.PHONY : RaspiPreview.c.i
+RaspiCam/RaspiPreview.c.i:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.i
+.PHONY : RaspiCam/RaspiPreview.c.i
 
-RaspiPreview.s: RaspiPreview.c.s
-.PHONY : RaspiPreview.s
+RaspiCam/RaspiPreview.s: RaspiCam/RaspiPreview.c.s
+.PHONY : RaspiCam/RaspiPreview.s
 
 # target to generate assembly for a file
-RaspiPreview.c.s:
-	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiPreview.c.s
-.PHONY : RaspiPreview.c.s
+RaspiCam/RaspiPreview.c.s:
+	$(MAKE) -f CMakeFiles/camcv.dir/build.make CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.s
+.PHONY : RaspiCam/RaspiPreview.c.s
 
 mycamera.o: mycamera.c.o
 .PHONY : mycamera.o
@@ -216,15 +216,15 @@ help:
 	@echo "... camcv"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... RaspiCLI.o"
-	@echo "... RaspiCLI.i"
-	@echo "... RaspiCLI.s"
-	@echo "... RaspiCamControl.o"
-	@echo "... RaspiCamControl.i"
-	@echo "... RaspiCamControl.s"
-	@echo "... RaspiPreview.o"
-	@echo "... RaspiPreview.i"
-	@echo "... RaspiPreview.s"
+	@echo "... RaspiCam/RaspiCLI.o"
+	@echo "... RaspiCam/RaspiCLI.i"
+	@echo "... RaspiCam/RaspiCLI.s"
+	@echo "... RaspiCam/RaspiCamControl.o"
+	@echo "... RaspiCam/RaspiCamControl.i"
+	@echo "... RaspiCam/RaspiCamControl.s"
+	@echo "... RaspiCam/RaspiPreview.o"
+	@echo "... RaspiCam/RaspiPreview.i"
+	@echo "... RaspiCam/RaspiPreview.s"
 	@echo "... mycamera.o"
 	@echo "... mycamera.i"
 	@echo "... mycamera.s"

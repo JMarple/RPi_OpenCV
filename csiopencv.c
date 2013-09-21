@@ -4,6 +4,7 @@
 #include <string.h>
 #include <memory.h>
 
+#include <cv.h>
 #include <highgui.h>
 #include "time.h"
 
@@ -17,10 +18,6 @@
 #include "interface/mmal/util/mmal_util_params.h"
 #include "interface/mmal/util/mmal_default_components.h"
 #include "interface/mmal/util/mmal_connection.h"
-
-#include "RaspiCamControl.h"
-#include "RaspiPreview.h"
-#include "RaspiCLI.h"
 
 #include <semaphore.h>
 
@@ -48,6 +45,55 @@ int mmal_status_to_int(MMAL_STATUS_T status);
 
 /** Structure containing all state information for the current run
  */
+ 
+//FROM RASPIPREVIEW_H_
+typedef struct
+{
+   int wantPreview;                       /// Display a preview
+   int wantFullScreenPreview;             /// 0 is use previewRect, non-zero to use full screen
+   int opacity;                           /// Opacity of window - 0 = transparent, 255 = opaque
+   MMAL_RECT_T previewWindow;             /// Destination rectangle for the preview window.
+   MMAL_COMPONENT_T *preview_component;   /// Pointer to the created preview display component
+} RASPIPREVIEW_PARAMETERS;
+
+// There isn't actually a MMAL structure for the following, so make one
+typedef struct
+{
+   int enable;       /// Turn colourFX on or off
+   int u,v;          /// U and V to use
+} MMAL_PARAM_COLOURFX_T;
+
+typedef struct
+{
+   double x;
+   double y;
+   double w;
+   double h;
+} PARAM_FLOAT_RECT_T;
+
+/// struct contain camera settings
+typedef struct
+{
+   int sharpness;             /// -100 to 100
+   int contrast;              /// -100 to 100
+   int brightness;            ///  0 to 100
+   int saturation;            ///  -100 to 100
+   int ISO;                   ///  TODO : what range?
+   int videoStabilisation;    /// 0 or 1 (false or true)
+   int exposureCompensation;  /// -10 to +10 ?
+   MMAL_PARAM_EXPOSUREMODE_T exposureMode;
+   MMAL_PARAM_EXPOSUREMETERINGMODE_T exposureMeterMode;
+   MMAL_PARAM_AWBMODE_T awbMode;
+   MMAL_PARAM_IMAGEFX_T imageEffect;
+   MMAL_PARAMETER_IMAGEFX_PARAMETERS_T imageEffectsParameters;
+   MMAL_PARAM_COLOURFX_T colourEffects;
+   int rotation;              /// 0-359
+   int hflip;                 /// 0 or 1
+   int vflip;                 /// 0 or 1
+   PARAM_FLOAT_RECT_T  roi;   /// region of interest to use on the sensor. Normalised [0,1] values in the rect
+} RASPICAM_CAMERA_PARAMETERS;
+
+
 typedef struct
 {
    int timeout;                        /// Time taken before frame is grabbed and app then shuts down. Units are milliseconds
@@ -344,4 +390,181 @@ static void signal_handler(int signal_number)
 }
 
 
+IplImage *yCSI_CAM, *uCSI_CAM, *vCSI_CAM, *uCSI_CAM_BIG, *vCSI_CAM_BIG, *CSI_CAM_IMAGE, *CSI_CAM_DSTIMAGE;
+RASPIVID_STATE state;
+	
+MMAL_STATUS_T status = -1;
+MMAL_PORT_T *camera_video_port = NULL;
+MMAL_PORT_T *camera_still_port = NULL;
+MMAL_PORT_T *preview_input_port = NULL;
+MMAL_PORT_T *encoder_input_port = NULL;
+MMAL_PORT_T *encoder_output_port = NULL;
+	
+int cvStartRPiCAM(void (*cbfunc), int width, int height)
+{
+		
+	// Our main data storage vessel..
+	time_t timer_begin,timer_end;
+	double secondsElapsed;
+		
+	bcm_host_init();
+	signal(SIGINT, signal_handler);
+	
+	// read default status
+	default_status(&state);
 
+	//Create Images Specifically for cvQueryRpiFrame
+	yCSI_CAM = cvCreateImage(cvSize(width,height), IPL_DEPTH_8U, 1);
+	uCSI_CAM = cvCreateImage(cvSize(width/2,height/2), IPL_DEPTH_8U, 1);
+	vCSI_CAM = cvCreateImage(cvSize(width/2,height/2), IPL_DEPTH_8U, 1);
+	uCSI_CAM_BIG = cvCreateImage(cvSize(width,height), IPL_DEPTH_8U, 1);
+	vCSI_CAM_BIG = cvCreateImage(cvSize(width,height), IPL_DEPTH_8U, 1);
+	CSI_CAM_IMAGE = cvCreateImage(cvSize(width,height), IPL_DEPTH_8U, 3);
+	CSI_CAM_DSTIMAGE = cvCreateImage(cvSize(width,height), IPL_DEPTH_8U, 3);
+	
+	// create camera
+	if (!create_camera_component(&state, cbfunc))
+	{
+	   vcos_log_error("%s: Failed to create camera component", __func__);
+	}
+	else if ((status = raspipreview_create(&state.preview_parameters)) != MMAL_SUCCESS)
+	{
+	   vcos_log_error("%s: Failed to create preview component", __func__);
+	   destroy_camera_component(&state);
+	}
+	else
+	{	
+			
+		PORT_USERDATA callback_data;
+		
+		camera_video_port   = state.camera_component->output[MMAL_CAMERA_VIDEO_PORT];
+		camera_still_port   = state.camera_component->output[MMAL_CAMERA_CAPTURE_PORT];
+	   
+		VCOS_STATUS_T vcos_status;
+		
+		callback_data.pstate = &state;
+		
+		vcos_status = vcos_semaphore_create(&callback_data.complete_semaphore, "RaspiStill-sem", 0);
+		vcos_assert(vcos_status == VCOS_SUCCESS);
+		
+		// assign data to use for callback
+		camera_video_port->userdata = (struct MMAL_PORT_USERDATA_T *)&callback_data;
+        
+        // init timer
+  		time(&timer_begin);
+  		
+       // start capture
+		if (mmal_port_parameter_set_boolean(camera_video_port, MMAL_PARAMETER_CAPTURE, 1) != MMAL_SUCCESS)
+		{
+		   return 0;
+		}
+		
+		// Send all the buffers to the video port
+		
+		int num = mmal_queue_length(state.video_pool->queue);
+		int q;
+		for (q=0;q<num;q++)		
+		{
+		   MMAL_BUFFER_HEADER_T *buffer = mmal_queue_get(state.video_pool->queue);
+		
+		   if (!buffer)
+		   		vcos_log_error("Unable to get a required buffer %d from pool queue", q);
+		
+			if (mmal_port_send_buffer(camera_video_port, buffer)!= MMAL_SUCCESS)
+		    	vcos_log_error("Unable to send a buffer to encoder output port (%d)", q);
+		}
+	}
+	return 1;
+}
+	
+
+/* This will output a frame that can be used for OpenCV */
+IplImage* cvQueryRPiFrame(MMAL_PORT_T *port, MMAL_BUFFER_HEADER_T *buffer)
+{
+	MMAL_BUFFER_HEADER_T *new_buffer;
+	PORT_USERDATA *pData = (PORT_USERDATA *)port->userdata;
+
+	if (pData)
+	{	 
+		if (buffer->length)
+		{
+			/*Convert buffer to RGB IplImage*/
+						
+			mmal_buffer_header_mem_lock(buffer);
+
+			int w=pData->pstate->width;	// get image size
+			int h=pData->pstate->height;
+			int h4=h/4;
+			
+			memcpy(yCSI_CAM->imageData,buffer->data,w*h);
+			memcpy(uCSI_CAM->imageData,buffer->data+w*h,w*h4);
+			memcpy(vCSI_CAM->imageData,buffer->data+w*h+w*h4,w*h4);
+			
+			cvResize(uCSI_CAM, uCSI_CAM_BIG, CV_INTER_NN);
+			cvResize(vCSI_CAM, vCSI_CAM_BIG, CV_INTER_NN);  //CV_INTER_LINEAR looks better but it's slower
+			cvMerge(yCSI_CAM, uCSI_CAM_BIG, vCSI_CAM_BIG, NULL, CSI_CAM_IMAGE);
+	
+			cvCvtColor(CSI_CAM_IMAGE,CSI_CAM_DSTIMAGE,CV_YCrCb2RGB);	// convert in RGB color space (slow)
+			
+			mmal_buffer_header_mem_unlock(buffer);		  
+		 }
+		 else 
+		 {
+			 vcos_log_error("buffer null");
+		 }
+      
+   }
+   else
+   {
+      vcos_log_error("Received a encoder buffer callback with no state");
+   }
+   
+   // release buffer back to the pool
+   mmal_buffer_header_release(buffer);
+
+   // and send one back to the port (if still open)
+   if (port->is_enabled)
+   {
+      MMAL_STATUS_T status;
+
+      new_buffer = mmal_queue_get(pData->pstate->video_pool->queue);
+
+      if (new_buffer)
+         status = mmal_port_send_buffer(port, new_buffer);
+
+      if (!new_buffer || status != MMAL_SUCCESS)
+         vcos_log_error("Unable to return a buffer to the encoder port");
+   }
+   
+   return CSI_CAM_DSTIMAGE;
+}
+
+/* Release All our images */
+void cvCloseRPiCAM()
+{
+	mmal_status_to_int(status);		
+		
+	// Disable all our ports that are not handled by connections
+	check_disable_port(camera_still_port);
+	
+	if (state.camera_component)
+	{
+	   mmal_component_disable(state.camera_component);
+	}	
+	if (status != 0)
+	{
+		raspicamcontrol_check_configuration(128);
+	}
+
+	//destroy_encoder_component(&state);
+	raspipreview_destroy(&state.preview_parameters);
+	destroy_camera_component(&state);
+		
+	cvReleaseImage(&yCSI_CAM);
+	cvReleaseImage(&uCSI_CAM);
+	cvReleaseImage(&uCSI_CAM_BIG);
+	cvReleaseImage(&vCSI_CAM);
+	cvReleaseImage(&vCSI_CAM_BIG);
+	cvReleaseImage(&CSI_CAM_DSTIMAGE);
+	cvReleaseImage(&CSI_CAM_IMAGE);
+}

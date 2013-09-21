@@ -4,9 +4,9 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/camcv/RaspiCLI.c" "/home/pi/camcv/CMakeFiles/camcv.dir/RaspiCLI.c.o"
-  "/home/pi/camcv/RaspiCamControl.c" "/home/pi/camcv/CMakeFiles/camcv.dir/RaspiCamControl.c.o"
-  "/home/pi/camcv/RaspiPreview.c" "/home/pi/camcv/CMakeFiles/camcv.dir/RaspiPreview.c.o"
+  "/home/pi/camcv/RaspiCam/RaspiCLI.c" "/home/pi/camcv/CMakeFiles/camcv.dir/RaspiCam/RaspiCLI.c.o"
+  "/home/pi/camcv/RaspiCam/RaspiCamControl.c" "/home/pi/camcv/CMakeFiles/camcv.dir/RaspiCam/RaspiCamControl.c.o"
+  "/home/pi/camcv/RaspiCam/RaspiPreview.c" "/home/pi/camcv/CMakeFiles/camcv.dir/RaspiCam/RaspiPreview.c.o"
   "/home/pi/camcv/mycamera.c" "/home/pi/camcv/CMakeFiles/camcv.dir/mycamera.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")

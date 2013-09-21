@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/camcv/RaspiCLI.h
-
-/home/pi/camcv/RaspiCamControl.h
-
-/home/pi/camcv/RaspiPreview.h
-
 /home/pi/camcv/csiopencv.c
 stdio.h
 -
@@ -20,6 +14,8 @@ stdlib.h
 string.h
 -
 memory.h
+-
+cv.h
 -
 highgui.h
 -
@@ -43,12 +39,6 @@ interface/mmal/util/mmal_default_components.h
 /home/pi/camcv/interface/mmal/util/mmal_default_components.h
 interface/mmal/util/mmal_connection.h
 /home/pi/camcv/interface/mmal/util/mmal_connection.h
-RaspiCamControl.h
-/home/pi/camcv/RaspiCamControl.h
-RaspiPreview.h
-/home/pi/camcv/RaspiPreview.h
-RaspiCLI.h
-/home/pi/camcv/RaspiCLI.h
 semaphore.h
 -
 
